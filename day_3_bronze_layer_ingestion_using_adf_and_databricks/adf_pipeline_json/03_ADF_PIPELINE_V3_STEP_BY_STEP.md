@@ -195,7 +195,7 @@ This single dataset is used for **both reading** (Lookup Activity) and **writing
 
 1. Drag **Web** onto the canvas → **Name:** `act_get_username`
 2. **Settings:**
-   - **URL:** `https://kv-ev-intelligence-dev.vault.azure.net/secrets/voltgrid-username/?api-version=7.0`
+   - **URL:** `https://kv-ev-int-dev.vault.azure.net/secrets/voltgrid-username/?api-version=7.0`
    - **Method:** GET
    - **Authentication:** System Assigned Managed Identity
    - **Resource:** `https://vault.azure.net`
@@ -209,7 +209,7 @@ This single dataset is used for **both reading** (Lookup Activity) and **writing
 1. Drag **Web** → **Name:** `act_get_password`
 2. Connect: `act_get_username` → `act_get_password`
 3. **Settings:**
-   - **URL:** `https://kv-ev-intelligence-dev.vault.azure.net/secrets/voltgrid-password/?api-version=7.0`
+   - **URL:** `https://kv-ev-int-dev.vault.azure.net/secrets/voltgrid-password/?api-version=7.0`
    - **Method:** GET
    - **Authentication:** System Assigned Managed Identity
    - **Resource:** `https://vault.azure.net`
@@ -500,10 +500,10 @@ The full load wrote `watermark_value = 1900-01-01T00:00:00Z`. Edit `pipeline_aud
 
 ```python
 # In a Databricks notebook or ADF Data Flow preview:
-display(dbutils.fs.ls("abfss://bronze@evdatalakedev.dfs.core.windows.net/api/payments/raw/"))
+display(dbutils.fs.ls("abfss://bronze@evdatalakedev1551.dfs.core.windows.net/api/payments/raw/"))
 
 df = spark.read.option("multiLine", "true").json(
-    "abfss://bronze@evdatalakedev.dfs.core.windows.net/api/payments/raw/ingestion_date=2026-07-06/page_1.json"
+    "abfss://bronze@evdatalakedev1551.dfs.core.windows.net/api/payments/raw/ingestion_date=2026-07-06/page_1.json"
 )
 display(df.limit(5))
 ```
